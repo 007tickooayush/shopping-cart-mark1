@@ -1,5 +1,5 @@
-import './App.css';
 import React from 'react';
+import './App.css';
 
 class Training extends React.Component {
     state = {
@@ -8,8 +8,10 @@ class Training extends React.Component {
     }
     clickHandler() {
         const {price,addTotal} = this.props;
-        this.setState({active: !this.state.active});
-        addTotal(this.state.active ? price: -price);
+        this.setState({active: !this.state.active},
+            () => {
+                addTotal(this.state.active ? price: -price)
+            });
     }
 
     render() {

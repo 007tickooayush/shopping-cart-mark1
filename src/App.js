@@ -1,6 +1,6 @@
-import './App.css';
 import Training from './Training';
 import React from 'react';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -25,11 +25,13 @@ class App extends React.Component {
         />
     })
     return (
-      <>
-      <h1>Our Trainings</h1>
-      {trainingData}
-      <p id="total"> Total <b> ${this.state.total.toFixed(2)} </b> </p>
-      </>
+      <div className="App App-header">
+        <h1>Our Trainings</h1>
+        
+        {trainingData}
+
+        <p id="total"> Total <b> ${this.state.total.toFixed(2)} </b> </p>
+      </div>
     );
   }
 }
