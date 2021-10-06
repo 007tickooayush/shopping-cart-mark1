@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Training from './Training';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    total:0
+  };
+
+  addTotal(price){
+    this.setState({
+      total: this.state.total + price
+    });
+  }
+
+  render(){
+    const {trainings} = this.props;
+
+    const trainingData = trainings.map((i,index)=>{
+      return <Training addTotal={(price)=> this.addTotal(price)} 
+          name={i.name} 
+          price={i.price} 
+          key={index} 
+          active={i.active} 
+        />
+    })
+    return (
+      <>
+      <h1>Our Trainings</h1>
+      {trainingData}
+      <p id="total"> Total <b> ${this.state.total.toFixed(2)} </b> </p>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+var trainings = [
+  {name:'Web development',price:300},
+  {name:'UI UX development',price:200},
+  {name:'Web Design',price:250},
+  {name:'AWS Training',price:400},
+];
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App trainings={trainings}/>,
   document.getElementById('root')
 );
 
